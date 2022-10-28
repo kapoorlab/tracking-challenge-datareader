@@ -1,0 +1,48 @@
+name: tracking-challenge-datareader
+display_name: Read sparsely annotated data for tracking challenge
+contributions:
+  commands:
+    - id: tracking-challenge-datareader.get_reader
+      python_name: tracking_challenge_datareader._reader:napari_get_reader
+      title: Open data with Read sparsely annotated data for tracking challenge
+    - id: tracking-challenge-datareader.write_multiple
+      python_name: tracking_challenge_datareader._writer:write_multiple
+      title: Save multi-layer data with Read sparsely annotated data for tracking challenge
+    - id: tracking-challenge-datareader.write_single_image
+      python_name: tracking_challenge_datareader._writer:write_single_image
+      title: Save image data with Read sparsely annotated data for tracking challenge
+    - id: tracking-challenge-datareader.make_sample_data
+      python_name: tracking_challenge_datareader._sample_data:make_sample_data
+      title: Load sample data from Read sparsely annotated data for tracking challenge
+    - id: tracking-challenge-datareader.make_qwidget
+      python_name: tracking_challenge_datareader._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: tracking-challenge-datareader.make_magic_widget
+      python_name: tracking_challenge_datareader._widget:example_magic_widget
+      title: Make example magic widget
+    - id: tracking-challenge-datareader.make_func_widget
+      python_name: tracking_challenge_datareader._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: tracking-challenge-datareader.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: tracking-challenge-datareader.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: tracking-challenge-datareader.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  sample_data:
+    - command: tracking-challenge-datareader.make_sample_data
+      display_name: Read sparsely annotated data for tracking challenge
+      key: unique_id.1
+  widgets:
+    - command: tracking-challenge-datareader.make_qwidget
+      display_name: Example QWidget
+    - command: tracking-challenge-datareader.make_magic_widget
+      display_name: Example Magic Widget
+    - command: tracking-challenge-datareader.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
